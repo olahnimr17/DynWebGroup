@@ -37,7 +37,7 @@ const server = http.createServer(function (req, res) {
             <br>
             <ul>`);
 
-        for (i = 0; i < spellParam.length; i++) {
+        for (let i = 0; i < spellParam.length; i++) {
             let buchstabe = spellParam[i].toUpperCase();
             let oenorm = dictionary.get(spellParam[i].toUpperCase());
             res.write(`<li>${buchstabe + oenorm}</li>`);
