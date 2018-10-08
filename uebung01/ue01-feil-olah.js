@@ -30,7 +30,7 @@ const server = http.createServer(function (req, res) {
             `<html>
             <head>
                 <meta charset="UTF-8">
-                <title>Spellcheck</title>
+                <title>ÖNORM A 1081</title>
             </head>
             <body>
                 <h1>Eingegebenes Wort: ${spellParam}</h1>
