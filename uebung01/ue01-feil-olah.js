@@ -39,8 +39,13 @@ const server = http.createServer(function (req, res) {
 
         for (let i = 0; i < spellParam.length; i++) {
             let buchstabe = spellParam[i].toUpperCase();
-            let oenorm = dictionary.get(spellParam[i].toUpperCase());
-            res.write(`<li>${buchstabe + oenorm}</li>`);
+            if (buchstabe === "S" && spellParam[i + 1].toUpperCase() === "C") {
+                res.write(`<li>Sch wie Schule</li>`);
+                i += 2;
+            } else {
+                let oenorm = dictionary.get(spellParam[i].toUpperCase());
+                res.write(`<li>${buchstabe + oenorm}</li>`);
+            }
         }
         res.write(`
             </ul>    
@@ -78,7 +83,6 @@ dictionary.set('P', ' wie Paula');
 dictionary.set('Q', ' wie Quelle');
 dictionary.set('R', ' wie Richard');
 dictionary.set('S', ' wie Siegfried');
-dictionary.set('ß', ' wie scharfes S');
 dictionary.set('T', ' wie Theodor');
 dictionary.set('U', ' wie Ulrich');
 dictionary.set('Ü', ' wie Übel');
